@@ -1,0 +1,29 @@
+README
+
+Tools for working with Symphony Lake Dataset.
+
+--------------------------Files------------------------------
+
+ParseSurvey.h	- A class to parse the data from the aux file for one survey. 
+ParseSurvey.cpp
+
+----------------------Getting Started------------------------
+
+The class takes as input the path to the survey directory, parses the aux file
+in the constructor, and the object provides direct access to the data through
+its member variables. To output the number of entries in the file, for example:
+
+#include <iostream>
+#include <string>
+#include "ParseSurvey.h"
+
+int main(int argc, char *argv[]) {
+    std::string path_to_survey_base_dir = argv[1];
+    
+    ParseSurvey PS(path_to_survey_base_dir);
+
+    std::cout << "read " << PS.timings.size() << " lines" << std::endl;
+
+    return 0;
+}
+
