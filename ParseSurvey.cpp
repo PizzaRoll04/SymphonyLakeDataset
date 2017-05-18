@@ -8,6 +8,8 @@
 
 #include "ParseSurvey.h"
 
+using namespace std;
+
 #ifdef _WIN32
 #define M_PI_2     1.57079632679489661923
 const string ParseSurvey::_auxfile = "\\image_auxilliary.csv";
@@ -115,7 +117,7 @@ void ParseSurvey::ReadDelimitedFile(string file, int type) {
     fclose(fp);
 }
 
-int ParseSurvey::GetIndexOfImage(int image){
+int ParseSurvey::GetIndexOfImage(int image) const {
     /*Finds the index in the aux file for a given image. Direct mapping doesn't work if
      * the aux is cropped anywhere after the beginning or images are skipped. Iterative
      * direct mapping is used.
@@ -137,7 +139,7 @@ int ParseSurvey::GetIndexOfImage(int image){
     return idx;
 }
 
-double ParseSurvey::GetAvgAngularVelocity(int sidx, int eidx) {
+double ParseSurvey::GetAvgAngularVelocity(int sidx, int eidx) const {
     /* The average angular velocity between two indices [sidx, eidx].
      * */
     sidx = max(0,sidx);
