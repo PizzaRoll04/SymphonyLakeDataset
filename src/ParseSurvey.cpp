@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 shane. All rights reserved.
 //
 
-#include "ParseSurvey.h"
+#include <string.h>
+#include "symphony_lake_dataset/ParseSurvey.h"
 
 using namespace std;
+using namespace symphony_lake_dataset;
 
 #ifdef _WIN32
 #define M_PI_2     1.57079632679489661923
