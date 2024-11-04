@@ -26,6 +26,20 @@ bool Survey::load(const std::string & mapdir, const std::string & imdir, const s
     return true;
 }
 
+bool Survey::load(const std::string & imdir, const std::string & survey) {
+    name = survey;
+    image_folder = imdir;
+    // TODO might have to create a flag that no mapdir has been passed and that pv is not populated
+    assert(loadClassesFromCSV(imdir+"/"+survey+"/image_auxilliary.csv",iv,true));
+    assert(iv.size() > 0);
+    for (size_t i=0;i<iv.size();i++) {
+        iv_idx.set(iv[i].t,i);
+    }
+    image_dis = std::uniform_int_distribution<>(0,iv.size()-1);
+    printf("Loaded %s: %d\n",name.c_str(),,int(iv.size()));
+    return true;
+}
+
 cv::Mat_<float> Survey::getKByPose(size_t pose_index) const {
     size_t p = imageFromPose(pose_index);
     cv::Mat_<float> K(3,3,0.0);

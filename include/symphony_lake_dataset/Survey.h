@@ -78,6 +78,7 @@ namespace symphony_lake_dataset {
             }
 
             bool load(const std::string & mapdir, const std::string & imdir, const std::string & survey) ;
+            bool load(const std::string & imdir, const std::string & survey) ;
 
             cv::Mat_<float> getKByPose(size_t pose_index) const ;
 

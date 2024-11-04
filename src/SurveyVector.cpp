@@ -15,9 +15,17 @@ bool SurveyVector::load(const std::string & map_folders, const std::string & ima
 
 }
 
+bool SurveyVector::load(const std::string & image_folders, 
+                    const std::vector<std::string> &file_list)
+{
+    surveys.resize(file_list.size());
+    for (size_t i=0;i<file_list.size();i++) {
+        surveys[i].load(image_folders,file_list[i]);
+    }
+    dis = std::uniform_int_distribution<>(0, surveys.size()-1);
+    return true;
 
-
-
+}
 
 void SurveyVector::getAllNeighbours(const PoseRef & pref,std::vector<PoseRef> & all_neighbours) const {
     const Survey & S1 = surveys[pref.first];
