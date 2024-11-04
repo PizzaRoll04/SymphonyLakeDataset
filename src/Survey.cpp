@@ -36,7 +36,7 @@ bool Survey::load(const std::string & imdir, const std::string & survey) {
         iv_idx.set(iv[i].t,i);
     }
     image_dis = std::uniform_int_distribution<>(0,iv.size()-1);
-    printf("Loaded %s: %d\n",name.c_str(),,int(iv.size()));
+    printf("Loaded %s: %d\n",name.c_str(),int(iv.size()));
     return true;
 }
 
