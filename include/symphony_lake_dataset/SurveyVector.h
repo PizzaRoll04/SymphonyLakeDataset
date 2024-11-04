@@ -21,7 +21,7 @@ namespace symphony_lake_dataset {
 
             bool load(const std::string & map_folders, const std::string & image_folders, 
                     const std::vector<std::string> &file_list);
-            bool load(const std::string &image_folders, const std::vector<std::stirng> $file_list);
+            bool load(const std::string &image_folders, const std::vector<std::string> $file_list);
 
             template<class Generator> 
                 PoseRef getRandomImage(Generator &gen) const {
